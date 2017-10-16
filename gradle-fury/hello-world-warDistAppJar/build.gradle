@@ -1,0 +1,24 @@
+description = '[ c h r i s d o y l e ] :: Gradle Fury :: Hello World Java Web Application (WAR) and Jar, and DistZip'
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'maven'
+apply plugin: 'war'
+try {
+    apply plugin: 'distribution'    //needed to produce zip on gradle 2.2.1 and older
+}catch (Throwable t){
+    //catch for older versions of gradle barfing when both application and distribution are applied.
+}
+
+mainClassName='com.chrisdoyle.helloworld.war.I18NHelper'
+
+compileJava {
+    sourceCompatibility = "${project.property('compileJava.sourceCompatibility')}"
+    targetCompatibility = "${project.property('compileJava.targetCompatibility')}"
+}
+
+dependencies {
+    compile "org.apache.commons:commons-lang3:${project.property('commons-lang3.version')}"
+    compile project(':hello-world-lib')
+    testCompile "junit:junit:${project.property('junit.version')}"
+}

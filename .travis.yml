@@ -1,0 +1,26 @@
+sudo: required
+language: ruby
+services:
+  - docker
+stages:
+  - compile
+  - name: publish
+    if: branch = master OR branch = development OR tag IS present
+install:
+  - docker pull rajawali/alpine-glibc-android:beta-feature_ndk-r16
+  -  bash .travis.before_script.sh
+jobs:
+  include:
+    - stage: compile
+      script: ./.travis.compile.sh
+    - stage: publish
+      script: ./.travis.publish.sh
+  email:
+    - info@rozengain.com
+    - rajawali.framework@gmail.com
+    - Jared.Woolston@gmail.com
+  slack:
+    secure: F5PgdetFfZrWrGlSg1jRQrYHH0miPpSqM969mzwh042OLybpAND4o7ouNAHYbWtVMVJ1KIK/bPKCdvW4Iy6pJpyntX+rQBYN6Tfs4bN/ivOrePBBDPLfr/uPGIY/EPAw4U7qeprRANAPT3IutCqx9FM/IAfNtzOWKcPOTRXNeoY=
+#after_success:
+  #- bash <(curl -s https://codecov.io/bash) -f "./core/build/reports/jacoco/jacocoUnifiedTestDebug.xml" -F unittests
+  #- bash <(curl -s https://codecov.io/bash) -f "./core/glTestCoverage.xml" -F glunittests

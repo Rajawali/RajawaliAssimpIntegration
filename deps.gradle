@@ -1,0 +1,6 @@
+// Support
+project.ext.set('depAndroidSupport', 'com.android.support:support-v13:24.2.1')
+project.ext.set('depSupportAnnotations', 'com.android.support:support-annotations:24.2.1')
+
+// External dependencies
+project.ext.set('depJCIP', 'net.jcip:jcip-annotations:1.0')
