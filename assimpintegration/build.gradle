@@ -29,9 +29,10 @@ android {
                         "-DASSIMP_BUILD_TESTS=OFF",
                         "-DBUILD_SHARED_LIBS=YES",
                         "-DASSIMP_COVERALLS=NO"
-                cFlags "-fexceptions", "-frtti", "-DASSIMP_BUILD_NO_OWN_ZLIB"
+                cFlags "-fexceptions", "-frtti"
+                        //"-DASSIMP_BUILD_OWN_ZLIB"
                 cppFlags "-std=c++11", "-fexceptions", "-frtti",
-                        "-DASSIMP_BUILD_NO_OWN_ZLIB",
+                        //"-DASSIMP_BUILD_OWN_ZLIB",
                         "-DASSIMP_BUILD_NO_C4D_IMPORTER",
                         "-DASSIMP_BUILD_NO_BLEND_IMPORTER",
                         "-DASSIMP_BUILD_NO_MMD_IMPORTER"
@@ -73,6 +74,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support:appcompat-v7:27.0.2'
     testCompile 'junit:junit:4.12'
 }

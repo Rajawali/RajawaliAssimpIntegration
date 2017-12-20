@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -e
 
 docker run -it -u `stat -c "%u:%g" .` -v ~/.aws:/root/.aws -v ${TRAVIS_BUILD_DIR}:/workspace -w /workspace
