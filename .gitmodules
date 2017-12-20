@@ -4,4 +4,4 @@
 [submodule "assimp"]
 	path = assimp
 	url = https://github.com/Rajawali/assimp.git
-	branch = Tag-v4.0.1
+	branch = rajawali_dependency
